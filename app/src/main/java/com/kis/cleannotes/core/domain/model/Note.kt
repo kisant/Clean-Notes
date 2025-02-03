@@ -1,4 +1,4 @@
-package com.kis.cleannotes.core.data.domain.model
+package com.kis.cleannotes.core.domain.model
 
 // For work with data out of the Room database
 data class Note(

@@ -1,16 +1,15 @@
-package com.kis.cleannotes.core.data.source.local
+package com.kis.cleannotes.core.domain.repository
 
 import com.kis.cleannotes.core.domain.model.Note
 import kotlinx.coroutines.flow.Flow
 
-// Abstraction from the Room database and increased flexibility
-interface LocalDataSource {
+interface LocalDataSourceRepository {
 
     fun getAllNotesFlow(): Flow<List<Note>>
 
     fun getNoteByIdFlow(id: Int): Flow<Note>
 
-    suspend fun insertNote(note: Note)
+    suspend fun addNote(note: Note)
 
     suspend fun updateNote(note: Note)
 

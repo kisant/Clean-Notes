@@ -1,6 +1,6 @@
 package com.kis.cleannotes.core.data.source.local
 
-import com.kis.cleannotes.core.data.domain.model.Note
+import com.kis.cleannotes.core.domain.model.Note
 import com.kis.cleannotes.core.data.mapper.toNote
 import com.kis.cleannotes.core.data.mapper.toNoteEntity
 import com.kis.cleannotes.core.data.source.local.dao.NoteDao
