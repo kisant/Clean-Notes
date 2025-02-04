@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Clean Notes</string>
+
+    <string name="create_note_fab_description">Create a new note</string>
 </resources>

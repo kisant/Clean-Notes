@@ -41,10 +41,10 @@ abstract class LocalSourceModuleBinder {
     @Binds
     abstract fun bindRoomLocalDataSource(
         roomLocalDataSource: RoomLocalDataSource
-    ): LocalDataSource //TODO: Why returns data source
+    ): LocalDataSource
 
     @Binds
     abstract fun bindDefaultCleanNotesRepository(
         defaultCleanNotesRepository: LocalDataSourceRepositoryImpl
-    ): LocalDataSourceRepository //TODO: Why returns repository
+    ): LocalDataSourceRepository
 }
