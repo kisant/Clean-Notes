@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Clean Notes</string>
 
+    <string name="main_toolbar_title">Clean Notes</string>
     <string name="create_note_fab_description">Create a new note</string>
+    <string name="do_not_have_any_notes_banner">You do not have any notes yet.</string>
 </resources>

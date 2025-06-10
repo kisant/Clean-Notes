@@ -31,7 +31,7 @@ class LocalSourceModuleProvider {
         context,
         NotesRoomDatabase::class.java,
         NotesRoomDatabase.DATABASE_NAME
-    )
+    ).build()
 }
 
 @Module

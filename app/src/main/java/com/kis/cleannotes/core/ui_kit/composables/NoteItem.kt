@@ -67,17 +67,17 @@ fun NoteItem(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-
-            IconButton(
-                modifier = Modifier.size(24.dp),
-                onClick = onDeleteButtonClick
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.Delete,
-                    contentDescription = null,
-                    tint = deleteButtonTintColor
-                )
-            }
+        }
+        
+        IconButton(
+            modifier = Modifier.size(24.dp),
+            onClick = onDeleteButtonClick
+        ) {
+            Icon(
+                imageVector = Icons.Rounded.Delete,
+                contentDescription = null,
+                tint = deleteButtonTintColor
+            )
         }
     }
 }
