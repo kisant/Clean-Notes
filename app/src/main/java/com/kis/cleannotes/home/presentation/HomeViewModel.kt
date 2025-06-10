@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.kis.cleannotes.core.domain.model.Note
 import com.kis.cleannotes.home.domain.DeleteNoteUseCase
 import com.kis.cleannotes.home.domain.GetAllNotesUseCase
-import com.kis.cleannotes.home.presentation.HomeUiEvent.OnDeleteClick
+import com.kis.cleannotes.home.presentation.HomeScreenUiEvent.OnDeleteClick
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
@@ -15,13 +15,13 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-internal sealed interface HomeUiEvent {
-    data class OnDeleteClick(val note: Note): HomeUiEvent
+internal sealed interface HomeScreenUiEvent {
+    data class OnDeleteClick(val note: Note): HomeScreenUiEvent
 }
 
-internal sealed interface HomeUiState {
-    data object Empty: HomeUiState
-    data class Content(val notes: List<Note>): HomeUiState
+internal sealed interface HomeScreenUiState {
+    data object Empty: HomeScreenUiState
+    data class Content(val notes: List<Note>): HomeScreenUiState
 }
 
 @HiltViewModel
@@ -32,22 +32,22 @@ internal class HomeViewModel @Inject constructor(
 
     private val notes: Flow<List<Note>> = getAllNotesUseCase()
 
-    fun handleEvent(event: HomeUiEvent) {
+    fun handleEvent(event: HomeScreenUiEvent) {
         when(event) {
             is OnDeleteClick -> deleteNote(event.note)
         }
     }
 
-    val uiState: StateFlow<HomeUiState> = notes.map { notes ->
+    val uiState: StateFlow<HomeScreenUiState> = notes.map { notes ->
         if (notes.isNotEmpty()) {
-            HomeUiState.Content(notes)
+            HomeScreenUiState.Content(notes)
         } else {
-            HomeUiState.Empty
+            HomeScreenUiState.Empty
         }
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000),
-        initialValue = HomeUiState.Empty
+        initialValue = HomeScreenUiState.Empty
     )
 
     private fun deleteNote(note: Note) = viewModelScope.launch {

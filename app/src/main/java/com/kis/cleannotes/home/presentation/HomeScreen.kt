@@ -23,12 +23,11 @@ import com.kis.cleannotes.core.domain.model.Note
 import com.kis.cleannotes.core.ui_kit.composables.CreateFloatingActionButton
 import com.kis.cleannotes.core.ui_kit.composables.NoteItem
 import com.kis.cleannotes.core.ui_kit.composables.TopBar
-import com.kis.cleannotes.home.di.HomeScreenModule
 
 @Composable
 internal fun HomeScreen(
     modifier: Modifier = Modifier,
-    uiState: HomeUiState,
+    uiState: HomeScreenUiState,
     onCreateNoteFloatingActionButtonClick: () -> Unit,
     onDeleteNoteButtonClick: (Note) -> Unit,
     onNoteClick: (String) -> Unit
@@ -53,8 +52,8 @@ internal fun HomeScreen(
                 .padding(paddingValues),
         ) {
             when (uiState) {
-                is HomeUiState.Empty ->  HomeScreenEmpty()
-                is HomeUiState.Content -> HomeScreenContent(
+                is HomeScreenUiState.Empty ->  HomeScreenEmpty()
+                is HomeScreenUiState.Content -> HomeScreenContent(
                     notes = uiState.notes,
                     onDeleteNoteButtonClick = onDeleteNoteButtonClick,
                     onNoteClick = onNoteClick
